@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Bai Tuyen Dung</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-icons.css}" rel="stylesheet">
+    <link th:href="@{/css/owl.carousel.min.css}" rel="stylesheet">
+    <link th:href="@{/css/owl.theme.default.min.css}" rel="stylesheet">
+    <link th:href="@{/css/tooplate-gotto-job.css}" rel="stylesheet">
+</head>
+<body>
+
+<th:block th:replace="~{layout::header}"></th:block>
+<main class="container mt-4">
+    <h1 class="mb-4">List of Bai Tuyen Dung</h1>
+    <a class="btn btn-primary mb-3" th:href="@{baiTuyenDungs/newBaiTuyenDung}">Create New Bai Tuyen Dung</a>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+        <tr>
+            <th>ID</th>
+            <th>Tiêu đề</th>
+            <th>Mức lương min</th>
+            <th>Mức lương max</th>
+            <th>Mô tả công việc</th>
+            <th>Yêu cầu kỹ năng</th>
+            <th>Trạng thái</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="baiTuyenDung : ${baiTuyenDungs}">
+            <td th:text="${baiTuyenDung.baiTuyenDungId}"></td>
+            <td th:text="${baiTuyenDung.tieuDe}"></td>
+            <td th:text="${baiTuyenDung.mucLuongMin}"></td>
+            <td th:text="${baiTuyenDung.mucLuongMax}"></td>
+            <td th:text="${baiTuyenDung.moTaCongViec}"></td>
+            <td th:text="${baiTuyenDung.yeuCauKyNang}"></td>
+            <td th:text="${baiTuyenDung.isActive}"></td>
+            <td>
+                <a class="btn btn-info btn-sm" th:href="@{baiTuyenDungs/details/{id}(id=${baiTuyenDung.baiTuyenDungId})}">Details</a>
+                <a class="btn btn-warning btn-sm" th:href="@{baiTuyenDungs/edit/{id}(id=${baiTuyenDung.baiTuyenDungId})}">Edit</a>
+                <a class="btn btn-danger btn-sm" th:href="@{baiTuyenDungs/delete/{id}(id=${baiTuyenDung.baiTuyenDungId})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+<th:block th:replace="~{layout::footer}"></th:block>
+
+<!-- JavaScript dependencies (placed at the end of the document to improve load time) -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

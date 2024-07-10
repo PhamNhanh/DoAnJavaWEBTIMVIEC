@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <link th:href="@{/css/bootstrap-icons.css}" rel="stylesheet">
+
+    <link th:href="@{/css/owl.carousel.min.css}" rel="stylesheet">
+
+    <link th:href="@{/css/owl.theme.default.min.css}" rel="stylesheet">
+
+    <link th:href="@{/css/tooplate-gotto-job.css}" rel="stylesheet">
+</head>
+<body>
+
+<th:block th:replace="~{layout::header}"></th:block>
+<main>
+<h1>Edit Bai Tuyen Dung</h1>
+
+
+    <form class="custom-form hero-form" th:action="@{/baiTuyenDungs/saveChange}" th:object="${baiTuyenDung}" method="post" role="form">
+        <h3 class="text-white mb-3">Edit bài tuyển dụng</h3>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon6"><i class="bi-geo-alt custom-icon"></i></span>
+                    <textarea type="text" name="baiTuyenDungId" readonly th:field="*{baiTuyenDungId}" id="baiTuyenDungId" class="form-control" placeholder="yêu cầu kỹ năng" required></textarea>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"><i class="bi-person custom-icon"></i></span>
+                    <input type="text" name="tieuDe" id="tieuDe" th:field="*{tieuDe}" class="form-control" placeholder="tiêu đề" required>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon2"><i class="bi-geo-alt custom-icon"></i></span>
+                    <textarea name="moTaCongViec" th:field="*{moTaCongViec}" id="moTaCongViec" class="form-control" placeholder="mô tả công việc" required></textarea>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon3"><i class="bi-geo-alt custom-icon"></i></span>
+                    <input type="number" name="mucLuongMin" th:field="*{mucLuongMin}" id="mucLuongMin" class="form-control" placeholder="mức lương min" required>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon4"><i class="bi-geo-alt custom-icon"></i></span>
+                    <input type="number" name="mucLuongMax" th:field="*{mucLuongMax}" id="mucLuongMax" class="form-control" placeholder="mức lương max" required>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon5"><i class="bi-geo-alt custom-icon"></i></span>
+                    <textarea type="text" name="yeuCauKyNang" th:field="*{yeuCauKyNang}" id="yeuCauKyNang" class="form-control" placeholder="yêu cầu kỹ năng" required></textarea>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="city">Địa điểm:</label>
+                <select id="city" name="thanhPhoId" class="form-select">
+                    <option value="">Chọn thành phố</option>
+                    <option th:each="city : ${thanhPhos}" th:value="${city.thanhPhoId}" th:text="${city.tenThanhPho}"></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="trangThai">isActive:</label>
+                <select class="form-control" id="trangThai" th:field="*{isActive}">
+                    <option value="True">True</option>
+                    <option value="False">False</option>
+                </select>
+            </div>
+
+            <div class="col-lg-12 col-12">
+                <button type="submit" class="form-control">
+                    Update
+                </button>
+            </div>
+
+        </div>
+    </form>
+
+
+
+
+
+
+
+</main>
+<th:block th:replace="~{layout::footer}"></th:block>
+
+<!-- JavaScript dependencies (placed at the end of the document to improve load time) -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ung Vien Details</title>
+</head>
+<body>
+<h1>Ung Vien Details</h1>
+<p>ID: <span th:text="${ungVien.id}"></span></p>
+<p>Ten Ung Vien: <span th:text="${ungVien.tenUngVien}"></span></p>
+<p>Avatar URL: <span th:text="${ungVien.avatarUrl}"></span></p>
+<p>Email: <span th:text="${ungVien.email}"></span></p>
+<p>SDT: <span th:text="${ungVien.sdt}"></span></p>
+<p>Dia Chi: <span th:text="${ungVien.diaChi}"></span></p>
+<a th:href="@{/ungvien/}">Back to List</a>
+</body>
+</html>

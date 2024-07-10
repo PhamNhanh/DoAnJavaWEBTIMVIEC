@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Bai Ung Tuyen</title>
+</head>
+<body>
+<h1>Edit Bai Ung Tuyen</h1>
+<form th:action="@{/baiungtuyen/edit/{id}(id=${baiUngTuyen.id})}" th:object="${baiUngTuyen}" method="post">
+    <label for="ungVienId">Ung Vien:</label>
+    <select id="ungVienId" th:field="*{ungVien}" th:object="${ungVienList}">
+        <option th:each="ungVien : ${ungVienList}" th:value="${ungVien.id}"
+                th:text="${ungVien.tenUngVien}"></option>
+    </select><br>
+    <label for="baiTuyenDungId">Bai Tuyen Dung:</label>
+    <select id="baiTuyenDungId" th:field="*{baiTuyenDung}" th:object="${baiTuyenDungList}">
+        <option th:each="baiTuyenDung : ${baiTuyenDungList}" th:value="${baiTuyenDung.id}"
+                th:text="${baiTuyenDung.title}"></option>
+    </select><br>
+    <label for="ngayNop">Ngay Nop:</label>
+    <input type="date" id="ngayNop" th:field="*{ngayNop}"><br>
+    <button type="submit">Save</button>
+</form>
+<a th:href="@{/baiungtuyen/}">Back to List</a>
+</body>
+</html>

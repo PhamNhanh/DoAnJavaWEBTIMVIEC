@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai Tuyen Dung Details</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-icons.css}" rel="stylesheet">
+    <link th:href="@{/css/owl.carousel.min.css}" rel="stylesheet">
+    <link th:href="@{/css/owl.theme.default.min.css}" rel="stylesheet">
+    <link th:href="@{/css/tooplate-gotto-job.css}" rel="stylesheet">
+</head>
+<body>
+
+<th:block th:replace="~{layout::header}"></th:block>
+<main class="container mt-4">
+    <h1 class="mb-4">Bai Tuyen Dung Details</h1>
+    <div class="card">
+        <div class="card-body">
+            <p><strong>ID:</strong> <span th:text="${baiTuyenDung.baiTuyenDungId}"></span></p>
+            <p><strong>Tiêu đề:</strong> <span th:text="${baiTuyenDung.tieuDe}"></span></p>
+            <p><strong>Lương min:</strong> <span th:text="${baiTuyenDung.mucLuongMin}"></span></p>
+            <p><strong>Lương max:</strong> <span th:text="${baiTuyenDung.mucLuongMax}"></span></p>
+            <p><strong>Mô tả công việc:</strong> <span th:text="${baiTuyenDung.moTaCongViec}"></span></p>
+            <p><strong>Yêu cầu kỹ năng:</strong> <span th:text="${baiTuyenDung.yeuCauKyNang}"></span></p>
+            <a class="btn btn-primary" th:href="@{/templates/BaiTuyenDung/}">Back to List</a>
+        </div>
+    </div>
+</main>
+<th:block th:replace="~{layout::footer}"></th:block>
+
+<!-- JavaScript dependencies (placed at the end of the document to improve load time) -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

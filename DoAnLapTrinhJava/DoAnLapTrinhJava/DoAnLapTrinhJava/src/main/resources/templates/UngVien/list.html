@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Ung Vien</title>
+</head>
+<body>
+<h1>List of Ung Vien</h1>
+<a th:href="@{/ungViens/newUngVien}">Create New Ung Vien</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Ten Ung Vien</th>
+        <th>Avatar URL</th>
+        <th>Email</th>
+        <th>SDT</th>
+        <th>Dia Chi</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ungVien : ${ungViens}">
+        <td th:text="${ungVien.getUngVienId()}"></td>
+        <td th:text="${ungVien.tenUngVien}"></td>
+        <td th:text="${ungVien.avatarUrl}"></td>
+        <td th:text="${ungVien.email}"></td>
+        <td th:text="${ungVien.sdt}"></td>
+        <td th:text="${ungVien.diaChi}"></td>
+        <td>
+            <a th:href="@{/ungvien/details/{id}(id=${ungVien.getUngVienId()})}">Details</a> |
+            <a th:href="@{/ungvien/edit/{id}(id=${ungVien.getUngVienId()})}">Edit</a> |
+            <a th:href="@{/ungvien/delete/{id}(id=${ungVien.getUngVienId()})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

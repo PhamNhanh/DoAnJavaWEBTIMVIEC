@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List of Nha Tuyen Dung</title>
+</head>
+<body>
+<a th:href="@{/}">Home</a>
+<h1>Danh Sách Nha Tuyen Dung</h1>
+<a th:href="@{/nhaTuyenDungs/create}">Thêm NTD</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Ten NTD</th>
+        <th>Dia Chi</th>
+        <th>Logo URL</th>
+        <th>SDT</th>
+        <th>Website</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="nhaTuyenDung : ${nhaTuyenDungList}">
+        <td th:text="${nhaTuyenDung.nhaTuyenDungId}"></td>
+        <td th:text="${nhaTuyenDung.tenNTD}"></td>
+        <td th:text="${nhaTuyenDung.diaChi}"></td>
+        <td th:text="${nhaTuyenDung.logoUrl}"></td>
+        <td th:text="${nhaTuyenDung.sdt}"></td>
+        <td th:text="${nhaTuyenDung.website}"></td>
+        <td th:text="${nhaTuyenDung.email}"></td>
+        <td>
+            <a th:href="@{/nhatuyendung/details/{id}(id=${nhaTuyenDung.nhaTuyenDungId})}">Details</a> |
+            <a th:href="@{/nhatuyendung/edit/{id}(id=${nhaTuyenDung.nhaTuyenDungId})}">Edit</a> |
+            <a th:href="@{/nhatuyendung/delete/{id}(id=${nhaTuyenDung.nhaTuyenDungId})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Ung Vien</title>
+</head>
+<body>
+<h1>Edit Ung Vien</h1>
+<form th:action="@{/ungViens/edit/{id}(id=${ungVien.ungVienId})}" th:object="${ungVien}" method="post">
+    <label for="tenUngVien">Ten Ung Vien:</label>
+    <input type="text" id="tenUngVien" th:field="*{tenUngVien}"><br>
+    <label for="avatarUrl">Avatar URL:</label>
+    <input type="text" id="avatarUrl" th:field="*{avatarUrl}"><br>
+    <label for="email">Email:</label>
+    <input type="text" id="email" th:field="*{email}"><br>
+    <label for="sdt">SDT:</label>
+    <input type="text" id="sdt" th:field="*{sdt}"><br>
+    <label for="diaChi">Dia Chi:</label>
+    <input type="text" id="diaChi" th:field="*{diaChi}"><br>
+    <button type="submit">Save</button>
+</form>
+<a th:href="@{/ungvien/}">Back to List</a>
+</body>
+</html>

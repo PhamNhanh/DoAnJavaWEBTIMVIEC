@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai Ung Tuyen Details</title>
+</head>
+<body>
+<h1>Bai Ung Tuyen Details</h1>
+<p>ID: <span th:text="${baiUngTuyen.id}"></span></p>
+<p>Ung Vien: <span th:text="${baiUngTuyen.ungVien.tenUngVien}"></span></p>
+<p>Bai Tuyen Dung: <span th:text="${baiUngTuyen.baiTuyenDung.title}"></span></p>
+<p>Ngay Nop: <span th:text="${baiUngTuyen.ngayNop}"></span></p>
+<a th:href="@{/baiungtuyen/}">Back to List</a>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Bai Ung Tuyen</title>
+</head>
+<body>
+
+<h1>List of Bai Ung Tuyen</h1>
+<a th:href="@{/donUngTuyens/newDonUngTuyen}">Create New Bai Ung Tuyen</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID Don ung tuyen</th>
+        <th>ten Cong ty</th>
+        <th>ten Ung Vien</th>
+        <th>ten Bai tuyen dung</th>
+        <th>Email ung vien</th>
+        <th>URL_CV</th>
+        <th>Thu gioi thieu</th>
+        <th>Ngay nop</th>
+        <th>Trang thai</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="donUngTuyen : ${donUngTuyens}">
+        <td th:text="${donUngTuyen.donUngTuyenId}"></td>
+        <td th:text="${donUngTuyen.ungVien.tenUngVien}"></td>
+        <td th:text="${donUngTuyen.nhaTuyenDung.tenCongTy}"></td>
+        <td th:text="${donUngTuyen.baiTuyenDung.tieuDe}"></td>
+        <td th:text="${donUngTuyen.email}"></td>
+        <td th:text="${donUngTuyen.url_cv}"></td>
+        <td th:text="${donUngTuyen.thuGioiThieu}"></td>
+        <td th:text="${donUngTuyen.createAt}"></td>
+        <td th:text="${donUngTuyen.trangThai}"></td>
+        <td>
+            <a th:href="@{/donUngTuyens/details/{id}(id=${donUngTuyen.getDonUngTuyenId()})}">Details</a> |
+            <a th:href="@{/donUngTuyens/edit/{id}(id=${donUngTuyen.getDonUngTuyenId()})}">Edit</a> |
+            <a th:href="@{/donUngTuyens/delete/{id}(id=${donUngTuyen.getDonUngTuyenId()})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
